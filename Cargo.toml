@@ -1,0 +1,35 @@
+[package]
+name = "commons-net"
+version = "0.1.0"
+edition = "2021"
+authors = ["crayfishgo"]
+documentation = "https://docs.rs/commons-net/"
+repository = "https://github.com/CrayfishGo/commons-net"
+description = "Tokio based implementation for Commons Net library contains a collection of network utilities and protocol implementations. Supported protocols include: Echo, FTP(S), NNTP, NTP, POP3(S), SMTP(S), Telnet"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["ftp", "ftps", "POP3", "SMTP", "NNTP"]
+categories = ["network-programming"]
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+# Enable support of FTPS which requires openssl
+ftps = ["tokio-rustls"]
+
+
+[dependencies]
+lazy_static = "1.4.0"
+regex = "1.5.5"
+chrono = "0.4"
+base64 = "0.13.0"
+
+tokio = { version = "1.17.0", features = ["net", "io-util"] }
+tokio-rustls = { version = "0.23.3", optional = true }
+pin-project = "1.0.10"
+
+[dev-dependencies]
+tokio = { version = "1.17.0", features = ["macros", "rt"] }
+tokio-util = { version = "0.7.1", features = ["io"] }
+tokio-stream = "0.1.8"

@@ -1,0 +1,19 @@
+#[derive(Debug)]
+pub enum SMTPCommand {
+    HELO,
+    MAIL,
+    RCPT,
+    DATA,
+    SEND,
+    SOML,
+    SAML,
+    RSET,
+    VRFY,
+    EXPN,
+    HELP,
+    NOOP,
+    TURN,
+    QUIT,
+    AUTH,
+    EHLO,
+}
